@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: nodes
+    static_configs:
+      - targets:
+          - ${NODE_TARGETS}
+        labels:
+          cluster: cluster-web-monitoramento
+  - job_name: web
+    static_configs:
+      - targets: ['${WEB_IP}:9113']
+        labels:
+          cluster: cluster-web-monitoramento

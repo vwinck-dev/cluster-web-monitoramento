@@ -1,0 +1,63 @@
+{
+  "cli.description": "Prepara e opera as VMs do monitoramento de cluster web sem privilégios de root.",
+  "cli.help.config": "Caminho para cluster.json",
+  "cli.help.nodes": "Nós a operar (padrão: todos)",
+  "cli.error.unknown_nodes": "Nó desconhecido: {nodes}",
+  "cli.error.prepare_takes_no_nodes": "prepare configura todos os nós; não aceita nomes de nós",
+  "cli.error.ssh_needs_one_node": "ssh exige exatamente um nó",
+  "cli.error.evidence_takes_no_nodes": "evidence usa o lab inteiro; não aceita nomes de nós",
+
+  "config.error.cluster_name": "Nome do cluster deve conter apenas letras minúsculas, números e hífens",
+  "config.error.guest_user": "Usuário convidado inválido",
+  "config.error.duplicate_address": "IP ou MAC duplicado: {name}",
+  "config.error.capacity": "RAM e disco devem ser positivos: {name}",
+  "config.error.port": "Porta do host inválida ou duplicada: {port}",
+  "config.error.required_roles": "Configuração exige nós web, client e monitor",
+
+  "provision.error.unknown_node": "Nó desconhecido: {name}",
+  "provision.final_message": "{cluster} {name} pronto em $UPTIME segundos",
+
+  "image.verified": "Imagem Ubuntu verificada: {path}",
+  "image.error.missing_checksum": "Imagem {image} ausente em SHA256SUMS",
+  "image.error.checksum_mismatch": "SHA256 da imagem Ubuntu não confere",
+
+  "prepare.done": "Discos e configurações criados em {path}",
+  "prepare.error.missing_tool": "Comando ausente: {command}",
+  "prepare.error.missing_key": "Chave SSH pública ausente. Crie ~/.ssh/id_ed25519.pub ou defina SSH_PUBLIC_KEY=/caminho/chave.pub",
+  "prepare.error.legacy_disk": "Disco legado {disk} detectado. Pare as VMs, faça backup e remova os discos .state/*.qcow2 para aplicar a nova identidade.",
+
+  "runner.trace": "+ {command}",
+
+  "vm.started": "{name}: PID {pid}, SSH localhost:{port}",
+  "vm.error.not_prepared": "Execute primeiro: python3 clusterctl.py prepare",
+  "vm.error.legacy_seed": "{name}: disco e seed legados detectados. Pare as VMs, faça backup, remova .state/*.qcow2 e execute python3 clusterctl.py prepare.",
+  "vm.error.memory": "RAM insuficiente: disponíveis {available} MiB, necessários pelo menos {required} MiB.",
+  "vm.already_stopped": "{name} já parado",
+  "vm.stopped": "{name} desligado",
+  "vm.still_stopping": "{name} ainda desligando; consulte status e o log serial",
+  "vm.shutdown_requested": "{name} {method}",
+  "vm.status.running": "rodando PID {pid}",
+  "vm.status.stopped": "parado",
+  "vm.status.line": "{name:8} {state:18} {ip:14} SSH 127.0.0.1:{port}",
+
+  "shutdown.ssh": "desligamento solicitado via SSH",
+  "shutdown.acpi": "desligamento ACPI solicitado",
+  "shutdown.error.exhausted": "{name}: nenhum método de desligamento funcionou",
+
+  "smoke.cloud_init_done": "{name}: cloud-init concluído",
+  "smoke.http_ok": "HTTP: host e cliente alcançam o web; tráfego de base ativo",
+  "smoke.prometheus_ok": "Prometheus: quatro alvos UP",
+  "smoke.grafana_ok": "Grafana: saudável, dashboard provisionado com seis painéis",
+  "smoke.error.cloud_init": "cloud-init incompleto: {name}",
+  "smoke.error.baseline": "tráfego de base do cliente inativo",
+  "smoke.error.web_down": "servidor web não respondeu",
+  "smoke.error.client_unreachable": "cliente não alcança web",
+  "smoke.error.targets": "alvos ausentes ou DOWN: {missing}",
+  "smoke.error.grafana": "Grafana: {health}",
+  "smoke.error.dashboard_incomplete": "dashboard incompleto",
+  "smoke.error.panel_empty": "painel sem dados: {title}",
+  "evidence.saved": "Evidência salva: {path}",
+  "evidence.skipped": "Evidências não geradas: {reason}",
+  "evidence.error.unavailable": "Selenium ou Firefox indisponível; instale com: python3 -m pip install -r requirements-evidence.txt",
+  "evidence.error.load_not_seen": "o Prometheus não registrou a carga (esperado ao menos {expected} requisições no último minuto)"
+}

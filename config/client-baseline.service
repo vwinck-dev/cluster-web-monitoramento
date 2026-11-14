@@ -1,0 +1,13 @@
+[Unit]
+Description=Cluster web baseline HTTP requests
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=${GUEST_USER}
+ExecStart=/bin/sh -c 'while :; do /usr/bin/curl -fsS --max-time 3 http://${WEB_IP}/ >/dev/null 2>&1 || :; /usr/bin/sleep 5; done'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

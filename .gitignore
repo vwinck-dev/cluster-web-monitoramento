@@ -1,0 +1,11 @@
+tmp/
+.state/
+*.qcow2
+*.iso
+*.log
+__pycache__/
+.venv/
+dist/
+evidence/
+roteiro-apresentacao-cluster.txt
+roteiro-apresentacao-cluster.pdf

@@ -1,0 +1,22 @@
+name: Problema
+description: Algo não funciona como o README descreve.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: O que aconteceu
+      description: Comando executado, saída obtida e o que você esperava.
+    validations:
+      required: true
+  - type: textarea
+    id: env
+    attributes:
+      label: Ambiente
+      description: Distribuição, versão do Python e do QEMU, e saída de `python3 clusterctl.py status`.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Trechos de `.state/NOME.log` ou de `/var/log/cloud-init-output.log`. Não cole a senha do Grafana.
+      render: text

@@ -1,0 +1,12 @@
+[Unit]
+Description=Cluster web nginx metrics exporter
+After=network-online.target nginx.service
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/cluster-web-monitoramento/web-metrics.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,56 @@
+{
+  "name": "cluster-web-monitoramento",
+  "guest_user": "cluster",
+  "network": {
+    "cidr_prefix": 24,
+    "bus": "230.20.30.6:16606",
+    "memory_reserve_mb": 1536
+  },
+  "image": {
+    "url": "https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img",
+    "sha256s_url": "https://cloud-images.ubuntu.com/noble/current/SHA256SUMS"
+  },
+  "nodes": {
+    "web": {
+      "ip": "10.20.30.10",
+      "cluster_mac": "52:54:00:4c:06:10",
+      "uplink_mac": "52:54:00:4c:05:01",
+      "ram_mb": 768,
+      "ssh_port": 2221,
+      "forwards": [
+        [
+          18080,
+          80
+        ]
+      ],
+      "disk_gb": 12
+    },
+    "client": {
+      "ip": "10.20.30.20",
+      "cluster_mac": "52:54:00:4c:06:20",
+      "uplink_mac": "52:54:00:4c:05:02",
+      "ram_mb": 768,
+      "ssh_port": 2222,
+      "forwards": [],
+      "disk_gb": 12
+    },
+    "monitor": {
+      "ip": "10.20.30.30",
+      "cluster_mac": "52:54:00:4c:06:30",
+      "uplink_mac": "52:54:00:4c:05:03",
+      "ram_mb": 1536,
+      "ssh_port": 2223,
+      "forwards": [
+        [
+          3000,
+          3000
+        ],
+        [
+          9090,
+          9090
+        ]
+      ],
+      "disk_gb": 16
+    }
+  }
+}
